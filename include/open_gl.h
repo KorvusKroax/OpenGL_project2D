@@ -12,6 +12,21 @@ enum ScreenMode {
 
 class OpenGL
 {
+    public:
+        Canvas* canvas;
+        float pixelScale;
+        const char* title;
+        GLFWwindow* window;
+
+        float deltaTime;
+        int mouseX, mouseY;
+
+        OpenGL(ScreenMode screenMode, float pixelScale = 1, unsigned int width = 0, unsigned int height = 0, const char* title = "OpenGL - 2D window");
+        ~OpenGL();
+
+        void update();
+        bool shouldClose();
+
     private:
         unsigned int quadVAO;
         unsigned int quadVBO;
@@ -39,19 +54,4 @@ class OpenGL
         void initFullscreen(unsigned int width, unsigned int height);
         void initQuad();
         void terminate();
-
-    public:
-        Canvas* canvas;
-        float pixelScale;
-        const char* title;
-        GLFWwindow* window;
-
-        float deltaTime;
-        int mouseX, mouseY;
-
-        OpenGL(ScreenMode screenMode, float pixelScale = 1, unsigned int width = 0, unsigned int height = 0, const char* title = "OpenGL - 2D window");
-        ~OpenGL();
-
-        void update();
-        bool shouldClose();
 };
