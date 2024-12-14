@@ -1,0 +1,3 @@
+from project folder:
+    mingw32-make    (compile)
+    ./main          (run)
